@@ -85,12 +85,15 @@ def test_log_bf():
 		print(psi)
 		print('  ', log_bf2(psi, 0.1, 0.2), )
 		print('  ', log_bf([[None, psi]], [0.1, 0.2]), )
-		test.assert_almost_equal(log_bf2(psi, 0.1, 0.2), log_bf([[None, psi]], [0.1, 0.2]))
+		test.assert_almost_equal(log_bf2(psi, 0.1, 0.2),
+                                 log_bf([[None, psi]], [0.1, 0.2]))
 	for psi in sep:
 		print(psi)
 		bf3 = log_bf3(psi, psi, psi, 0.1, 0.2, 0.3)
 		print('  ', bf3)
-		g = log_bf([[None, psi, psi], [psi, None, psi], [psi, psi, None]], [0.1, 0.2, 0.3])
+		g = log_bf([[None, psi, psi],
+                    [psi, None, psi],
+                    [psi, psi, None]], [0.1, 0.2, 0.3])
 		print('  ', g)
 		test.assert_almost_equal(bf3, g)
 	q = numpy.zeros(len(sep))
